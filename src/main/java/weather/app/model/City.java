@@ -29,6 +29,6 @@ public enum City {
                 return city;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Invalid city option: " + option);
     }
 }
