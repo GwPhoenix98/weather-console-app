@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 
 public class WeatherService {
@@ -20,6 +22,7 @@ public class WeatherService {
 
         validateApiKey();
 
+        String encodedCity = URLEncoder.encode(city, StandardCharsets.UTF_8);
         String urlString = String.format("%s?q=%s&units=metric&appid=%s", BASE_URL, city, API_KEY);
 
         HttpURLConnection conn = null;
