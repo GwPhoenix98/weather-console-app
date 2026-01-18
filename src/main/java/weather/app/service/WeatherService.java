@@ -37,9 +37,8 @@ public class WeatherService {
                 throw new WeatherException("Failed to fetch weather data. HTTP code: " + responseCode);
             }
 
-            try {
-                BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                {
+            try (BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(conn.getInputStream()))) {
 
                     StringBuilder response = new StringBuilder();
                     String line;
@@ -50,6 +49,7 @@ public class WeatherService {
 
                     return parseWeatherResponse(response.toString());
                 }
+
             } catch (IOException e) {
                 throw new WeatherException("Network error: " + e.getMessage());
             } catch (Exception e) {
@@ -61,7 +61,7 @@ public class WeatherService {
             }
         }
 
-        private validateApiKey () {
+        private void validateApiKey() {
             if (API_KEY == null || API_KEY.isEmpty()) {
                 throw new WeatherException("API KEY missing! Please set WEATHER_API_KEY environment variable.");
             }
@@ -69,7 +69,7 @@ public class WeatherService {
 
         private WeatherResponse parseWeatherResponse (String jsonString) {
             try {
-                JSONObject json = new JSONObject(response.toString());
+                JSONObject json = new JSONObject(jsonString);
 
                 double temp = json.getJSONObject("main").getDouble("temp");
                 String description = json.getJSONArray("weather").getJSONObject(0).getString("description");
