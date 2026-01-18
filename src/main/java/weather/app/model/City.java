@@ -1,4 +1,4 @@
-package weather.app;
+package weather.app.model;
 
 public enum City {
     CHISINAU(1, "Chisinau"),
@@ -29,6 +29,6 @@ public enum City {
                 return city;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Invalid city option: " + option);
     }
 }

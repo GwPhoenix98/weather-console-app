@@ -1,4 +1,4 @@
-package weather.app;
+package weather.app.model;
 
 public class WeatherResponse {
 
@@ -16,5 +16,13 @@ public class WeatherResponse {
 
     public String getDescription() {
         return description;
+    }
+
+    @Override
+    public String toString() {
+        return "WeatherResponse{" +
+                "temperature=" + temperature +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
