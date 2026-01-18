@@ -1,4 +1,4 @@
-package weather.app;
+package weather.app.model;
 
 public enum City {
     CHISINAU(1, "Chisinau"),

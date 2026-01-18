@@ -1,4 +1,4 @@
-package weather.app;
+package weather.app.exception;
 
 public class WeatherException extends RuntimeException {
 

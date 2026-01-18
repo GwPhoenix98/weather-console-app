@@ -1,4 +1,9 @@
-package weather.app;
+package weather.app.ui;
+
+import weather.app.exception.WeatherException;
+import weather.app.model.City;
+import weather.app.model.WeatherResponse;
+import weather.app.service.WeatherService;
 
 import java.util.Scanner;
 

@@ -1,6 +1,8 @@
-package weather.app;
+package weather.app.service;
 
 import org.json.JSONObject;
+import weather.app.exception.WeatherException;
+import weather.app.model.WeatherResponse;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
